@@ -38,8 +38,8 @@ public class AccountTests {
                 {"МоисеевДмитрий", false},
                 {"Моисеев  Дмитрий", false},
                 {"123 Дмитрий", false},
-                {"Моисеев 123", false}
-
+                {"Моисеев 123", false},
+                {"",false}
         };
     }
 
