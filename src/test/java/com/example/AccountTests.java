@@ -15,7 +15,7 @@ public class AccountTests {
     private final String fullName;
     private final boolean expectedResult;
 
-    public AccountTests(String fullName, boolean expectedResult) {
+    public AccountTests(String fullName, boolean expectedResult) throws InterruptedException {
         this.fullName = fullName;
         this.expectedResult = expectedResult;
     }
@@ -39,13 +39,20 @@ public class AccountTests {
                 {"Моисеев  Дмитрий", false},
                 {"123 Дмитрий", false},
                 {"Моисеев 123", false},
-                {"",false}
+                {"",false},
+                {null,false}
         };
     }
 
     @Test
-    public void accountTest(){
-        Assert.assertEquals(account.checkNameToEmboss(), expectedResult);
+    public void accountTest()  {
+        try {
+            Assert.assertEquals(account.checkNameToEmboss(), expectedResult);
+        } catch (NullPointerException e) {
+            {
+                System.out.print("NullPointerException caught");
+            }
+        }
     }
 
 
